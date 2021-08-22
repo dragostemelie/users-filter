@@ -19,8 +19,8 @@ This project is a challenge from Alex Zmed.
 
 ## Screenshot mobile
 
-![Mobile screenshot](https://github.com/dragostemelie/users-filter/raw/main/screenshot.png)
+![Mobile screenshot](https://github.com/dragostemelie/users-filter/raw/main/screenshot-mobile.png)
 
 ## Screenshot desktop
 
-![Desktop screenshot](https://github.com/dragostemelie/users-filter/raw/main/screenshot.png)
+![Desktop screenshot](https://github.com/dragostemelie/users-filter/raw/main/screenshot-desktop.png)
