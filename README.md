@@ -17,10 +17,4 @@ This project is a challenge from Alex Zmed.
 - [x] Click event is recorded only when the user clicks the “User x” text inside the card.
 - [x] Search input can be cleared by clicking the (x) icon.
 
-## Screenshot mobile
-
-![Mobile screenshot](https://github.com/dragostemelie/users-filter/raw/main/screenshot-mobile.png)
-
-## Screenshot desktop
-
-![Desktop screenshot](https://github.com/dragostemelie/users-filter/raw/main/screenshot-desktop.png)
+## See it in action on Netlify: https://users-filter.netlify.app/
