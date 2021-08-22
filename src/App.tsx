@@ -1,68 +1,72 @@
-import React, { useState, useEffect } from "react";
-import { useDebounce } from "./hooks/useDebounce";
-import { User, generateUsers } from "./getUsers";
-import { Search, User as UserBox, Layout } from "./components";
+import React, { useState, useEffect } from "react"
+import { useDebounce } from "./hooks/useDebounce"
+import { User, generateUsers } from "./getUsers"
+import { Search, User as UserBox, Layout } from "./components"
 
 function App() {
   //State
-  const [searchValue, setSearchValue] = useState<string>("");
-  const [usersList, setUsersList] = useState<User[]>(generateUsers());
-  const [filteredList, setFilteredList] = useState<User[]>(generateUsers());
-  const [deletedUsers, setDeletedUsers] = useState<number[]>([]);
+  const [searchValue, setSearchValue] = useState<string>("")
+  // eslint-disable-next-line
+  const [usersList, setUsersList] = useState<User[]>(generateUsers())
+  const [filteredList, setFilteredList] = useState<User[]>(generateUsers())
+  const [deletedUsers, setDeletedUsers] = useState<number[]>([])
 
   //Custom debounce hooks
-  const debouncedSearchValue = useDebounce<string>(searchValue, 500);
-  const debouncedDeletedUsers = useDebounce<number[]>(deletedUsers, 500);
+  const debouncedSearchValue = useDebounce<string>(searchValue, 500)
+  const debouncedDeletedUsers = useDebounce<number[]>(deletedUsers, 500)
 
   //Update search value
   const handleUpdateSearchValue = (value: string) => {
-    setSearchValue(value);
-  };
+    setSearchValue(value)
+  }
+  //Clear search text
+  const handleClearText = () => {
+    setSearchValue("")
+  }
 
   //Update users count
   const handleUserClick = (userId: number) => {
-    setUsersList((prevList) => {
+    setUsersList(prevList => {
       const currentList = [
-        ...prevList.map((user) => ({
+        ...prevList.map(user => ({
           ...user,
           count: user.id !== userId ? user.count + 1 : user.count,
         })),
-      ];
+      ]
       setFilteredList([
         ...currentList.filter(
-          (user) =>
+          user =>
             searchValue.length === 0 ||
             user.name.toUpperCase().includes(searchValue.toUpperCase())
         ),
-      ]);
-      return currentList;
-    });
-    //Filter by search value
-  };
+      ])
+      return currentList
+    })
+  }
 
   //Remove user by id
   const handleUserRemove = (userId: number) => {
-    setDeletedUsers([...deletedUsers, userId]);
-  };
+    setDeletedUsers([...deletedUsers, userId])
+  }
 
   //Debounce effect
   useEffect(() => {
-    //Update userList => filter current userList
-    setUsersList((prevList) => {
+    //Update userList => update filter list
+    setUsersList(prevList => {
       const currentList = [
-        ...prevList.filter((user) => !deletedUsers.includes(user.id)),
-      ];
+        ...prevList.filter(user => !deletedUsers.includes(user.id)),
+      ]
       setFilteredList([
         ...currentList.filter(
-          (user) =>
+          user =>
             searchValue.length === 0 ||
             user.name.toUpperCase().includes(searchValue.toUpperCase())
         ),
-      ]);
-      return currentList;
-    });
+      ])
+      return currentList
+    })
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [debouncedSearchValue, debouncedDeletedUsers]);
+  }, [debouncedSearchValue, debouncedDeletedUsers])
 
   return (
     <Layout.Main>
@@ -71,10 +75,11 @@ function App() {
           value={searchValue}
           placeholder="Search users"
           onChange={handleUpdateSearchValue}
+          onClearText={handleClearText}
         />
       </Layout.Aside>
       <Layout.Article>
-        {filteredList.map((user) => (
+        {filteredList.map(user => (
           <UserBox
             key={user.id}
             username={user.name}
@@ -86,7 +91,7 @@ function App() {
         ))}
       </Layout.Article>
     </Layout.Main>
-  );
+  )
 }
 
-export default App;
+export default App

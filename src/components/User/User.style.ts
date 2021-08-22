@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from "styled-components"
 
 export const Container = styled.div`
   padding: 10px 10px;
@@ -31,11 +31,30 @@ export const Container = styled.div`
       opacity: 1;
     }
   }
-`;
+  @media (max-width: 767px) {
+    &:hover {
+      color: #10192c;
+      background-color: transparent;
+    }
+    &:active {
+      color: white;
+      background-color: #3e4c79;
+      border-color: #3e4c79;
+      & .delete-icon {
+        color: white;
+      }
+    }
+    & .delete-icon {
+      opacity: 1;
+      color: #5b6273;
+    }
+  }
+`
 export const Username = styled.span`
   flex: 1;
   font-size: 1.2rem;
-`;
+  user-select: none;
+`
 export const ClickCount = styled.span`
   width: 1.2rem;
   height: 1.2rem;
@@ -47,4 +66,8 @@ export const ClickCount = styled.span`
   background-color: transparent;
   border: 1px solid #a8aab0;
   border-radius: 50%;
-`;
+  @media (max-width: 767px) {
+    color: #10192c;
+    border: 1px solid #5b6273;
+  }
+`

@@ -1,21 +1,18 @@
-import styled from "styled-components";
+import styled from "styled-components"
 
 export const Main = styled.main`
   display: flex;
   height: 100vh;
-`;
+`
 export const Aside = styled.aside`
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
-  height: 60px;
+  height: 70px;
   padding: 10px 20px;
   background-color: #f5f7f9;
   border-bottom: 1px solid #5b6273;
-  & > * {
-    width: calc(100% / 1 - 0px);
-  }
   @media (min-width: 767px) {
     position: relative;
     width: 300px;
@@ -24,7 +21,7 @@ export const Aside = styled.aside`
     border: 0;
     border-right: 1px solid #5b6273;
   }
-`;
+`
 export const Article = styled.article`
   flex: 1;
   padding: 10px 20px;
@@ -34,7 +31,7 @@ export const Article = styled.article`
   display: flex;
   flex-wrap: wrap;
   gap: 10px;
-  margin-top: 60px;
+  margin-top: 70px;
   & > * {
     width: 100%;
   }
@@ -50,4 +47,4 @@ export const Article = styled.article`
       width: calc(100% / 6 - 10px);
     }
   }
-`;
+`
