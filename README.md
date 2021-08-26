@@ -1,6 +1,6 @@
 # Users filter app
 
-This project is a challenge from Alex Zmed.
+This project is a challenge from [Alex Zmed](https://github.com/zmedd).
 
 ## Todo list:
 
